@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfectly Spaced Dancing Gnome</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: monospace;
+        }
+        
+        .gnome-container {
+            white-space: pre;
+            font-size: 16px;
+            color: #7CFC00;
+            text-shadow: 0 0 5px #7CFC00;
+            line-height: 1;
+            text-align: center;
+        }
+        
+        .gnome {
+            display: inline-block;
+            animation: bounce 1.5s infinite alternate ease-in-out;
+            transform-origin: bottom center;
+        }
+        
+        @keyframes bounce {
+            0% {
+                transform: scaleY(0.98) translateY(2px);
+            }
+            100% {
+                transform: scaleY(1) translateY(0);
+            }
+        }
+        
+        .legs {
+            animation: kneeBend 1s infinite alternate;
+        }
+        
+        @keyframes kneeBend {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gnome-container">
+        <div class="gnome">
+            <div>                __</div>
+            <div>             .-'  |</div>
+            <div>            /   &lt;\|</div>
+            <div>           /     \'</div>
+            <div>           |_.- o-o</div>
+            <div>           / C  -._)\</div>
+            <div>          /',        |</div>
+            <div>         |   `-_,_,__,'</div>
+            <div class="legs">         (,,)====[_]=|</div>
+            <div>           '.   ____/</div>
+            <div>            | -|-|_</div>
+            <div>            |____)_)</div>
+        </div>
+    </div>
+
+    <script>
+        // Alternate leg animation
+        const legs = document.querySelector('.legs');
+        const legStates = [
+            "         (,,)====[_]=|",
+            "         (,,)====[ ]=|"
+        ];
+        
+        let currentLegState = 0;
+        
+        setInterval(() => {
+            currentLegState = 1 - currentLegState;
+            legs.textContent = legStates[currentLegState];
+        }, 500);
+    </script>
+</body>
+</html>

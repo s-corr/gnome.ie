@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kneeling Gnome</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .gnome-container {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 12px;
+            color: #7CFC00;
+            text-shadow: 0 0 3px #7CFC00;
+            line-height: 1;
+        }
+        
+        .gnome {
+            animation: kneeBend 2s infinite alternate ease-in-out;
+            transform-origin: bottom center;
+            display: inline-block;
+        }
+        
+        @keyframes kneeBend {
+            0% {
+                transform: scaleY(1);
+            }
+            100% {
+                transform: scaleY(0.95) translateY(5px);
+            }
+        }
+        
+        .hat {
+            animation: hatTilt 4s infinite alternate ease-in-out;
+            transform-origin: center;
+            display: inline-block;
+        }
+        
+        @keyframes hatTilt {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(2deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gnome-container">
+        <div class="hat">       .--. </div>
+        <div class="hat">     .'    `.</div>
+        <div>     |         |</div>
+        <div>     |         |</div>
+        <div class="gnome">      \ _.'  _.'</div>
+        <div class="gnome">       |_.-''</div>
+        <div class="gnome">       |</div>
+        <div class="gnome">       |</div>
+        <div class="gnome">      _|_</div>
+        <div class="gnome">     /___\</div>
+    </div>
+
+    <script>
+        // Alternate between two leg positions for more natural bending
+        const gnomeLines = document.querySelectorAll('.gnome');
+        const legStates = [
+            [
+                "      \ _.'  _.'",
+                "       |_.-''",
+                "       |",
+                "       |",
+                "      _|_",
+                "     /___\\"
+            ],
+            [
+                "      \ _.'  _.'",
+                "       |_.-''",
+                "       |\\",
+                "       | \\",
+                "      _|_ \\",
+                "     /___\\ \\"
+            ]
+        ];
+        
+        let currentLegState = 0;
+        
+        setInterval(() => {
+            currentLegState = 1 - currentLegState; // Toggle between 0 and 1
+            gnomeLines.forEach((line, index) => {
+                line.textContent = legStates[currentLegState][index];
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

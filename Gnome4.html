@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Properly Spaced Dancing Gnome</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: monospace;
+        }
+        
+        .gnome-container {
+            white-space: pre;
+            font-size: 16px;
+            color: #7CFC00;
+            text-shadow: 0 0 5px #7CFC00;
+            line-height: 1.2;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .upper-body {
+            display: inline-block;
+            animation: upperBodyTilt 2s infinite alternate ease-in-out;
+            transform-origin: bottom center;
+        }
+        
+        .legs {
+            display: inline-block;
+            animation: kneeBend 1.5s infinite alternate ease-in-out;
+            transform-origin: top center;
+        }
+        
+        @keyframes upperBodyTilt {
+            0% {
+                transform: rotate(-1deg);
+            }
+            100% {
+                transform: rotate(1deg);
+            }
+        }
+        
+        @keyframes kneeBend {
+            0% {
+                transform: scaleY(1) translateY(0);
+            }
+            100% {
+                transform: scaleY(0.92) translateY(4px);
+            }
+        }
+        
+        .hat {
+            animation: hatBounce 1.2s infinite alternate;
+        }
+        
+        @keyframes hatBounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-3px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gnome-container">
+        <div class="hat">                __</div>
+        <div class="hat">             .-'  |</div>
+        <div class="upper-body">
+            <div>            /   &lt;\|</div>
+            <div>           /     \'</div>
+            <div>           |_.- o-o</div>
+            <div>           / C  -._)\</div>
+            <div>          /',        |</div>
+            <div>         |   `-_,_,__,'</div>
+        </div>
+        <div class="legs">
+            <div>         (,,)====[_]=|</div>
+            <div>           '.   ____/</div>
+            <div>            | -|-|_</div>
+            <div>            |____)_)</div>
+        </div>
+    </div>
+
+    <script>
+        // Alternate between two leg positions for more natural bending
+        const legs = document.querySelector('.legs');
+        const legStates = [
+            [
+                "         (,,)====[_]=|",
+                "           '.   ____/",
+                "            | -|-|_",
+                "            |____)_)"
+            ],
+            [
+                "         (,,)====[ ]=|",
+                "           '.   ____/",
+                "            | -|-|_",
+                "            |____)_)"
+            ]
+        ];
+        
+        let currentLegState = 0;
+        
+        setInterval(() => {
+            currentLegState = 1 - currentLegState;
+            const legLines = legs.querySelectorAll('div');
+            legLines.forEach((line, index) => {
+                line.textContent = legStates[currentLegState][index];
+            });
+        }, 800);
+    </script>
+</body>
+</html>
