@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gnomin - D' Gnome is Home</title>
-    <meta name="description" content="Come in! Come in! D' Gnome is Home!!!">
-    <meta name="keywords" content="dancing gnome, ASCII art, retro gnome, D' Gnome is Home, gnome, text art animation, Come dance in D' Gnomes home">
-    <meta property="og:title" content="D' Gnome is Home">
-    <meta property="og:description" content="Come in! Come in! Come dance with the Gnome">
-    <meta property="og:type" content="website">
     <style>
         body {
             background-color: #222;
@@ -20,21 +15,7 @@
             margin: 0;
             font-family: monospace;
         }
-        
-        .gnome {
-            white-space: pre;
-            font-size: 16px;
-            color: #7CFC00;
-            text-shadow: 0 0 5px #7CFC00;
-            line-height: 1;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .gnome-body {
-            animation: bounce 1s infinite alternate ease-in-out;
-        }
-        
+
         .title {
             font-size: 48px;
             font-weight: bold;
@@ -46,7 +27,7 @@
             animation: flash 0.5s infinite alternate;
             margin-bottom: 20px;
         }
-        
+
         .button {
             margin-top: 20px;
             padding: 12px 24px;
@@ -62,17 +43,46 @@
             box-shadow: 4px 4px 0 #7CFC00;
             transition: all 0.2s;
         }
-        
+
         .button:hover {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 #7CFC00;
         }
-        
+
+        .gnome {
+            white-space: pre;
+            font-size: 16px;
+            color: #7CFC00;
+            text-shadow: 0 0 5px #7CFC00;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gnome-body {
+            animation: bounce 1s infinite alternate ease-in-out;
+        }
+
+        .text-box {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #FF00FF;
+            color: #222;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 4px 4px 0 #7CFC00;
+            text-align: center;
+        }
+
         @keyframes bounce {
             0% { transform: translateY(-2px); }
             100% { transform: translateY(2px); }
         }
-        
+
         @keyframes flash {
             0%, 100% {
                 opacity: 1;
@@ -85,32 +95,20 @@
                 text-shadow: 4px 4px 0 #FF00FF, 8px 8px 0 #00FFFF;
             }
         }
-        
+
         .legs {
             animation: kneeBend 0.8s infinite alternate;
-        }
-
-        /* Hidden SEO text */
-        .seo-text {
-            position: absolute;
-            height: 0;
-            overflow: hidden;
-            color: transparent;
         }
     </style>
 </head>
 <body>
-    <!-- Title -->
-    <div class="title">Meet the Gnomes</div>
+    <!-- 1. Flashing Title -->
+    <div class="title">D' Gnome is Home</div>
 
-    <!-- Hidden semantic HTML for SEO -->
-    <h1 class="seo-text">Come in!!! Come in!!! </h1>
-    <p class="seo-text">D' Gnome is Home!!!</p>
-    <div class="seo-text">
-        Come dance with D' Gnome
-    </div>
+    <!-- 2. Dance Button -->
+    <button class="button" id="danceButton">Dance with D' Gnome</button>
 
-    <!-- Main content -->
+    <!-- 3. Dancing Gnome ASCII Art -->
     <div class="gnome">
         <div class="gnome-body">
                 __
@@ -128,11 +126,14 @@
         </div>
     </div>
 
-    <!-- Dance Button -->
-    <button class="button" id="danceButton">Dance with the D' Gnome</button>
+    <!-- 4. Meet the Gnomes Title -->
+    <div class="title">Meet D' Gnomes</div>
 
-    <!-- Business Button -->
+    <!-- 5a. Business Button -->
     <button class="button" id="businessButton" onclick="window.location.href='/business'">D' Business Gnome</button>
+
+    <!-- 5b. Text Box -->
+    <div class="text-box">Not all the Gnomes are back from Gnomin yet... patience is a virtue</div>
 
     <audio id="bgMusic" loop>
         <source src="dGnomeTone.mp3" type="audio/mpeg">
@@ -158,7 +159,7 @@
         danceButton.addEventListener('click', function() {
             if (musicPlaying) {
                 music.pause();
-                danceButton.textContent = 'Dance with the D\' Gnome';
+                danceButton.textContent = 'Dance with D\' Gnome';
             } else {
                 music.play();
                 danceButton.textContent = 'Give in TO D\' GNOME!!!';
