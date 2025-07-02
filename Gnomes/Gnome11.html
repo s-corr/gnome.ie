@@ -1,14 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D' Gnome is Home - Interactive ASCII Dancing Gnome Experience</title>
-    <meta name="description" content="Come in! Come in! D' Gnome is Home. Dance with our interactive ASCII gnome to delightful chiptune music in this retro web experience.">
-    <meta name="keywords" content="dancing gnome, ASCII art, retro gnome, D' Gnome is Home, interactive gnome, text art animation">
-    <meta property="og:title" content="D' Gnome is Home - Interactive Dancing Gnome">
-    <meta property="og:description" content="Come in! Come in! Dance with our ASCII gnome to chiptune music">
-    <meta property="og:type" content="website">
+    <title>Dancing Gnome - D' Gnome is Home</title>
     <style>
         body {
             background-color: #222;
@@ -48,23 +41,13 @@
         
         .music-control {
             margin-top: 20px;
-            padding: 12px 24px;
-            background: #FF00FF;
+            padding: 8px 16px;
+            background: #7CFC00;
             color: #222;
             border: none;
             font-family: 'Courier New', monospace;
             font-weight: bold;
             cursor: pointer;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 4px 4px 0 #7CFC00;
-            transition: all 0.2s;
-        }
-        
-        .music-control:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0 #7CFC00;
         }
         
         @keyframes bounce {
@@ -88,27 +71,9 @@
         .legs {
             animation: kneeBend 0.8s infinite alternate;
         }
-
-        /* Hidden SEO text */
-        .seo-text {
-            position: absolute;
-            height: 0;
-            overflow: hidden;
-            color: transparent;
-        }
     </style>
 </head>
 <body>
-    <!-- Hidden semantic HTML for SEO -->
-    <h1 class="seo-text">Interactive Dancing ASCII Gnome</h1>
-    <p class="seo-text">Welcome to D' Gnome is Home - the web's premier interactive ASCII dancing gnome experience featuring retro text animation and chiptune music</p>
-    <div class="seo-text">
-        ASCII dancing gnome, interactive web art, retro computer animation, 
-        D' Gnome is Home, vintage ASCII art collection, moving text art,
-        gnome animation, text-based character, digital folk art
-    </div>
-
-    <!-- Main content -->
     <div class="gnome">
         <div class="gnome-body">
                 __
@@ -126,7 +91,7 @@
         </div>
     </div>
     <div class="title">D' GNOME IS HOME</div>
-    <button class="music-control" id="musicToggle">DANCE WITH THE D' GNOME</button>
+    <button class="music-control" id="musicToggle">PLAY MUSIC</button>
 
     <audio id="bgMusic" loop>
         <!-- Free chiptune music from https://opengameart.org/ -->
@@ -140,7 +105,7 @@
         const legs = document.querySelector('.legs');
         const states = [
             "         (,,)====[_]=|",
-            "         (,,)====[#]=|"
+            "         (,,)====[ ]=|"
         ];
         setInterval(() => {
             legs.textContent = legs.textContent === states[0] ? states[1] : states[0];
@@ -154,10 +119,10 @@
         musicToggle.addEventListener('click', function() {
             if (musicPlaying) {
                 music.pause();
-                musicToggle.textContent = 'DANCE WITH THE D\' GNOME';
+                musicToggle.textContent = 'PLAY MUSIC';
             } else {
                 music.play();
-                musicToggle.textContent = 'LOOSE TO D\' GNOME!!!';
+                musicToggle.textContent = 'STOP MUSIC';
             }
             musicPlaying = !musicPlaying;
         });
@@ -171,31 +136,6 @@
             }
             document.body.removeEventListener('click', initAudio);
         });
-
-        // Sitemap notification for crawlers
-        if (window.location.href.includes('gnome')) {
-            const link = document.createElement('link');
-            link.rel = 'canonical';
-            link.href = window.location.href.split('?')[0].split('#')[0];
-            document.head.appendChild(link);
-        }
-    </script>
-
-    <!-- Structured data for search engines -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "D' Gnome is Home",
-      "description": "Interactive dancing ASCII gnome with music",
-      "applicationCategory": "EntertainmentApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
     </script>
 </body>
 </html>

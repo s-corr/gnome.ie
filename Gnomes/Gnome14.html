@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D' Gnome is Home - Interactive ASCII Dancing Gnome Experience</title>
-    <meta name="description" content="Come in! Come in! D' Gnome is Home. Dance with our interactive ASCII gnome to delightful chiptune music in this retro web experience.">
-    <meta name="keywords" content="dancing gnome, ASCII art, retro gnome, D' Gnome is Home, interactive gnome, text art animation">
-    <meta property="og:title" content="D' Gnome is Home - Interactive Dancing Gnome">
-    <meta property="og:description" content="Come in! Come in! Dance with our ASCII gnome to chiptune music">
-    <meta property="og:type" content="website">
+    <title>D' Gnome is Home - The Dancing Gnome Experience</title>
+    <meta name="description" content="Come in! Come in! D' Gnome is Home. Dance with the gnome to delightful chiptune music in this retro interactive experience.">
     <style>
         body {
             background-color: #222;
@@ -88,27 +82,9 @@
         .legs {
             animation: kneeBend 0.8s infinite alternate;
         }
-
-        /* Hidden SEO text */
-        .seo-text {
-            position: absolute;
-            height: 0;
-            overflow: hidden;
-            color: transparent;
-        }
     </style>
 </head>
 <body>
-    <!-- Hidden semantic HTML for SEO -->
-    <h1 class="seo-text">Interactive Dancing ASCII Gnome</h1>
-    <p class="seo-text">Welcome to D' Gnome is Home - the web's premier interactive ASCII dancing gnome experience featuring retro text animation and chiptune music</p>
-    <div class="seo-text">
-        ASCII dancing gnome, interactive web art, retro computer animation, 
-        D' Gnome is Home, vintage ASCII art collection, moving text art,
-        gnome animation, text-based character, digital folk art
-    </div>
-
-    <!-- Main content -->
     <div class="gnome">
         <div class="gnome-body">
                 __
@@ -171,31 +147,6 @@
             }
             document.body.removeEventListener('click', initAudio);
         });
-
-        // Sitemap notification for crawlers
-        if (window.location.href.includes('gnome')) {
-            const link = document.createElement('link');
-            link.rel = 'canonical';
-            link.href = window.location.href.split('?')[0].split('#')[0];
-            document.head.appendChild(link);
-        }
-    </script>
-
-    <!-- Structured data for search engines -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "D' Gnome is Home",
-      "description": "Interactive dancing ASCII gnome with music",
-      "applicationCategory": "EntertainmentApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
     </script>
 </body>
 </html>
