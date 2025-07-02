@@ -44,9 +44,10 @@
             text-transform: uppercase;
             font-family: 'Courier New', monospace;
             animation: flash 0.5s infinite alternate;
+            margin-bottom: 20px;
         }
         
-        .music-control {
+        .button {
             margin-top: 20px;
             padding: 12px 24px;
             background: #FF00FF;
@@ -62,7 +63,7 @@
             transition: all 0.2s;
         }
         
-        .music-control:hover {
+        .button:hover {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 #7CFC00;
         }
@@ -96,37 +97,16 @@
             overflow: hidden;
             color: transparent;
         }
-		
-    <style>
-        /* Add this to your existing styles */
-        .nav-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 12px 24px;
-            background: #FF00FF;
-            color: #222;
-            border: none;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 4px 4px 0 #7CFC00;
-            transition: all 0.2s;
-            z-index: 100;
-        }
-        
-        .nav-button:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0 #7CFC00;
-        }
     </style>
 </head>
 <body>
-	<!-- Add this button at the top of your body -->
-    <a href="/business" class="nav-button">BUSINESS</a>
+    <!-- Title -->
+    <div class="title">Meet the Gnomes</div>
+
+    <!-- Buttons -->
+    <button class="button" id="danceButton">Dance with the D' Gnome</button>
+    <button class="button" id="businessButton" onclick="window.location.href='/business'">D' Business Gnome</button>
+
     <!-- Hidden semantic HTML for SEO -->
     <h1 class="seo-text">Come in!!! Come in!!! </h1>
     <p class="seo-text">D' Gnome is Home!!!</p>
@@ -151,11 +131,8 @@
             |____)_)
         </div>
     </div>
-    <div class="title">D' GNOME IS HOME</div>
-    <button class="music-control" id="musicToggle">DANCE WITH THE D' GNOME</button>
 
     <audio id="bgMusic" loop>
-        <!-- Free chiptune music from https://opengameart.org/ -->
         <source src="dGnomeTone.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -173,54 +150,19 @@
 
         // Music control
         const music = document.getElementById('bgMusic');
-        const musicToggle = document.getElementById('musicToggle');
+        const danceButton = document.getElementById('danceButton');
         let musicPlaying = false;
 
-        musicToggle.addEventListener('click', function() {
+        danceButton.addEventListener('click', function() {
             if (musicPlaying) {
                 music.pause();
-                musicToggle.textContent = 'DANCE WITH THE D\' GNOME';
+                danceButton.textContent = 'Dance with the D\' Gnome';
             } else {
                 music.play();
-                musicToggle.textContent = 'Give in TO D\' GNOME!!!';
+                danceButton.textContent = 'Give in TO D\' GNOME!!!';
             }
             musicPlaying = !musicPlaying;
         });
-
-        // Autoplay with user interaction
-        document.body.addEventListener('click', function initAudio() {
-            if (!musicPlaying) {
-                music.play();
-                music.pause();
-                music.currentTime = 0;
-            }
-            document.body.removeEventListener('click', initAudio);
-        });
-
-        // Sitemap notification for crawlers
-        if (window.location.href.includes('gnome')) {
-            const link = document.createElement('link');
-            link.rel = 'canonical';
-            link.href = window.location.href.split('?')[0].split('#')[0];
-            document.head.appendChild(link);
-        }
-    </script>
-
-    <!-- Structured data for search engines -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "D' Gnome is Home",
-      "description": "Come dance in D' Gnomes home",
-      "applicationCategory": "GnomeApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
     </script>
 </body>
 </html>
