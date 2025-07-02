@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gnomin - D' Gnome is Home</title>
+    <title>D' Gnome is Home - Interactive ASCII Dancing Gnome Experience</title>
     <meta name="description" content="Come in! Come in! D' Gnome is Home. Dance with our interactive ASCII gnome to delightful chiptune music in this retro web experience.">
     <meta name="keywords" content="dancing gnome, ASCII art, retro gnome, D' Gnome is Home, interactive gnome, text art animation">
     <meta property="og:title" content="D' Gnome is Home - Interactive Dancing Gnome">
@@ -21,13 +21,6 @@
             font-family: monospace;
         }
         
-        .gnome-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-        
         .gnome {
             white-space: pre;
             font-size: 16px;
@@ -36,13 +29,10 @@
             line-height: 1;
             text-align: center;
             margin-bottom: 30px;
-            font-family: 'Courier New', monospace;
         }
         
         .gnome-body {
             animation: bounce 1s infinite alternate ease-in-out;
-            text-align: center;
-            margin: 0 auto;
         }
         
         .title {
@@ -54,8 +44,6 @@
             text-transform: uppercase;
             font-family: 'Courier New', monospace;
             animation: flash 0.5s infinite alternate;
-            text-align: center;
-            margin: 20px 0;
         }
         
         .music-control {
@@ -121,26 +109,24 @@
     </div>
 
     <!-- Main content -->
-    <div class="gnome-container">
-        <div class="gnome">
-            <div class="gnome-body">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.-'&nbsp;&nbsp;|<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&lt;\|<br>
-              &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\'<br>
-              &nbsp;&nbsp;|_.-&nbsp;o-o<br>
-              &nbsp;&nbsp;/&nbsp;C&nbsp;&nbsp;-._)\<br>
-              &nbsp;/',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-              |&nbsp;&nbsp;&nbsp;`-_,_,__,'<br>
-              <div class="legs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(,,)====[&nbsp;]=|</div>
-              &nbsp;&nbsp;&nbsp;'.&nbsp;&nbsp;&nbsp;____/<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-|-|_<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____)_)
-            </div>
+    <div class="gnome">
+        <div class="gnome-body">
+                __
+             .-'  |
+            /   <\|
+           /     \'
+           |_.- o-o
+           / C  -._)\
+          /',        |
+         |   `-_,_,__,'
+        <div class="legs">         (,,)====[ ]=|</div>
+           '.   ____/
+            | -|-|_
+            |____)_)
         </div>
-        <div class="title">D' GNOME IS HOME</div>
-        <button class="music-control" id="musicToggle">DANCE WITH THE D' GNOME</button>
     </div>
+    <div class="title">D' GNOME IS HOME</div>
+    <button class="music-control" id="musicToggle">DANCE WITH THE D' GNOME</button>
 
     <audio id="bgMusic" loop>
         <!-- Free chiptune music from https://opengameart.org/ -->
