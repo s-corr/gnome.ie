@@ -77,6 +77,15 @@
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 #7CFC00;
         }
+
+        .spin {
+            animation: spin 1s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -84,7 +93,7 @@
     <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
 
     <!-- Business Content -->
-    <div class="business-content rocking-gnome">
+    <div class="business-content">
 Gnome Enterprises™
 Business Solutions | Timeless Wisdom™
 
@@ -95,7 +104,7 @@ Business Solutions | Timeless Wisdom™
            |_.- o-o         📞 +353 (01) Gnome Phone
            / C  -._)\       ✉️ <a href="mailto:business@gnome.ie">business@gnome.ie</a>
           /',   ___  \      🌐 <a href="https://www.gnome.ie/business" target="_blank">www.gnome.ie/business</a>
-         |   `-,_@__,'
+         |   `-,_@__,'      
          (,,)====[_]=|      "Turning mischief into market share."
            '.   ____/       
             | -|-|_         
@@ -117,6 +126,15 @@ Business Solutions | Timeless Wisdom™
         let musicPlaying = false;
 
         businessButton.addEventListener('click', function() {
+            // Add spin class to button
+            businessButton.classList.add('spin');
+
+            // Remove spin class after animation ends
+            setTimeout(() => {
+                businessButton.classList.remove('spin');
+            }, 1000);
+
+            // Toggle music and button text
             if (musicPlaying) {
                 businessMusic.pause();
                 businessButton.textContent = 'Time for Business';
