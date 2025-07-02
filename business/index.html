@@ -88,10 +88,7 @@
         }
 
         .message {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 20px;
             color: #FF00FF;
             font-family: 'Courier New', monospace;
             font-size: 36px;
@@ -127,14 +124,14 @@ Business Solutions | Timeless Wisdom™
     <!-- Business Button -->
     <button class="business-button" id="businessButton">Time for Business</button>
 
+    <!-- Message -->
+    <div class="message" id="message">D' Business Gnome owns you now, now feck off</div>
+
     <!-- Audio -->
     <audio id="businessMusic" loop>
         <source src="businessTime.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-    <!-- Message -->
-    <div class="message" id="message">D' Business Gnome owns you now, now feck off</div>
 
     <script>
         const businessButton = document.getElementById('businessButton');
