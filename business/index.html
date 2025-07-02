@@ -19,8 +19,8 @@
             color: #7CFC00;
             font-size: 16px;
             line-height: 1.5;
-            display: inline-block; /* Ensures the content is treated as a block */
-            text-align: left; /* Aligns text to the left within the block */
+            display: inline-block;
+            text-align: left;
             margin-top: 50px;
         }
 
@@ -47,6 +47,36 @@
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 #7CFC00;
         }
+
+        .rocking-gnome {
+            animation: rock 1s infinite alternate ease-in-out;
+        }
+
+        @keyframes rock {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        .business-button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #FF00FF;
+            color: #222;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 4px 4px 0 #7CFC00;
+            transition: all 0.2s;
+        }
+
+        .business-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #7CFC00;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +84,7 @@
     <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
 
     <!-- Business Content -->
-    <div class="business-content">
+    <div class="business-content rocking-gnome">
 Gnome Enterprises™
 Business Solutions | Timeless Wisdom™
 
@@ -71,5 +101,31 @@ Business Solutions | Timeless Wisdom™
             | -|-|_         
             |____)_)        
     </div>
+
+    <!-- Business Button -->
+    <button class="business-button" id="businessButton">Time for Business</button>
+
+    <!-- Audio -->
+    <audio id="businessMusic" loop>
+        <source src="businessTime.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const businessButton = document.getElementById('businessButton');
+        const businessMusic = document.getElementById('businessMusic');
+        let musicPlaying = false;
+
+        businessButton.addEventListener('click', function() {
+            if (musicPlaying) {
+                businessMusic.pause();
+                businessButton.textContent = 'Time for Business';
+            } else {
+                businessMusic.play();
+                businessButton.textContent = 'Sign all belongings over to D\' Business Gnome';
+            }
+            musicPlaying = !musicPlaying;
+        });
+    </script>
 </body>
 </html>
