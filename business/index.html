@@ -86,6 +86,19 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FF00FF;
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            text-align: center;
+            text-shadow: 4px 4px 0 #7CFC00, 8px 8px 0 #FF0000;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -120,9 +133,13 @@ Business Solutions | Timeless Wisdom™
         Your browser does not support the audio element.
     </audio>
 
+    <!-- Message -->
+    <div class="message" id="message">D' Business Gnome owns you now, now feck off</div>
+
     <script>
         const businessButton = document.getElementById('businessButton');
         const businessMusic = document.getElementById('businessMusic');
+        const messageDiv = document.getElementById('message');
         let musicPlaying = false;
 
         businessButton.addEventListener('click', function() {
@@ -138,6 +155,14 @@ Business Solutions | Timeless Wisdom™
             if (musicPlaying) {
                 businessMusic.pause();
                 businessButton.textContent = 'Time for Business';
+
+                // Show the message
+                messageDiv.style.display = 'block';
+
+                // Hide the message after 3 seconds
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 3000);
             } else {
                 businessMusic.play();
                 businessButton.textContent = 'Sign all belongings over to D\' Business Gnome';
