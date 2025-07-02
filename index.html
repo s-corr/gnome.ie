@@ -96,9 +96,37 @@
             overflow: hidden;
             color: transparent;
         }
+		
+    <style>
+        /* Add this to your existing styles */
+        .nav-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: #FF00FF;
+            color: #222;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 4px 4px 0 #7CFC00;
+            transition: all 0.2s;
+            z-index: 100;
+        }
+        
+        .nav-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #7CFC00;
+        }
     </style>
 </head>
 <body>
+	<!-- Add this button at the top of your body -->
+    <a href="/business" class="nav-button">BUSINESS</a>
     <!-- Hidden semantic HTML for SEO -->
     <h1 class="seo-text">Come in!!! Come in!!! </h1>
     <p class="seo-text">D' Gnome is Home!!!</p>
