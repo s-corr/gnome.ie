@@ -38,7 +38,12 @@
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 #7CFC00;
         }
-
+        .title-container {
+        display: inline-block;
+        text-align: center;
+        margin: 50px 0 40px;
+        position: relative;
+    }
         .arch-title {
             font-size: 36px;
             font-weight: bold;
@@ -48,6 +53,17 @@
             margin: 70px 0 30px 0;
             display: block;
             transform: rotate(-10deg);
+        }
+        .sub-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF00FF;
+            text-align: right;
+            margin-top: -15px;
+            margin-right: 20px;
+            font-family: monospace;
+            text-transform: uppercase;
+            transform: rotate(5deg);
         }
 
         .fishing-container {
@@ -226,8 +242,10 @@
     <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
 
     <!-- Arch Title -->
-    <div class="arch-title">Welcome to D' Fishing Gnome's FishHub</div>
-
+    <div class="title-container">
+        <div class="arch-title">Welcome to D' Fishing Gnome's FishHub</div>
+        <div class="sub-title">"Keep those lines tight biys!"</div>
+    </div>
 
     <!-- Fishing Container -->
     <div class="fishing-container">
@@ -316,10 +334,10 @@
     <div class="dropdown-section">
         <div class="dropdown-header" onclick="toggleDropdown('catch')">D' Catch of the Day ▼</div>
         <div class="dropdown-content" id="catch-content">
-            <img src="mycatch.jpg" alt="Today's Catch" class="catch-photo">
+            <img src="MackeralNight.jpeg" alt="Today's Catch" class="catch-photo">
             <div class="catch-blog">
                 <!-- Your existing blog content -->
-                <p>Today was a magical day by the old willow pond...</p>
+                <p>Lovely Phat night mackeral lads. Shame about the rod tho... I'll say nothing for the time being you never know. Tight lines</p>
             </div>
         </div>
     </div>
@@ -328,21 +346,21 @@
         <div class="dropdown-header" onclick="toggleDropdown('archive')">D' Catch of the Past ▼</div>
         <div class="dropdown-content" id="archive-content">
             <div class="archive-item clearfix">
-                <div class="archive-date">July 3, 2023</div>
-                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
-                <div class="archive-excerpt">Caught a feisty bass who challenged me to a staring contest. Naturally, I won (gnomes never blink first). Released with a hat made of lily pads.</div>
+                <div class="archive-date">June 28, 2025</div>
+                <img src="MackeralNight.jpeg" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">Jaysus lads one  mackerel in the whole shop. Ofc D' Fishing Gnome caught the fella.</div>
             </div>
             
             <div class="archive-item clearfix">
-                <div class="archive-date">June 28, 2023</div>
-                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
-                <div class="archive-excerpt">The legendary catfish of Mudbottom Creek! We shared stories and a bit of my secret gnome jerky. He showed me the best sunken log for napping.</div>
+                <div class="archive-date">June 20, 2025</div>
+                <img src="Pollock.jpeg" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">Oh biys the whole place is chock-a-block pollock! Not a mackeral in sight. Jaysus D' Fishing Gnome may as well have gone to Tesco.</div>
             </div>
             
             <div class="archive-item clearfix">
                 <div class="archive-date">June 20, 2023</div>
-                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
-                <div class="archive-excerpt">A whole school of bluegill! We had an impromptu underwater tea party (they brought the algae cakes). Most polite fish I've ever met.</div>
+                <img src="ThornbackRay.jpeg" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">Oh jaysus lads school is in session... well it was until D' Fishing Gnome yanked the pupils out ;)</div>
             </div>
         </div>
     </div>
