@@ -103,6 +103,46 @@
             padding: 0;
         }
 
+        /* Vibration Animation */
+        @keyframes vibrate {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+            100% { transform: translate(0); }
+        }
+
+        .vibrate {
+            animation: vibrate 0.3s linear;
+        }
+
+        /* Music Button */
+        #fishingMusicBtn {
+            padding: 12px 24px; 
+            background: #FF00FF; 
+            color: #222; 
+            border: none; 
+            font-family: monospace; 
+            font-weight: bold; 
+            font-size: 18px; 
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0 #7CFC00;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        /* Add this to your style section */
+        @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+        }
+
+        .blinking-eyes {
+        animation: blink 4s infinite;
+        position: relative;
+        }
+
         /* Contact Box */
         .contact-box {
             max-width: 600px;
@@ -235,6 +275,7 @@
             clear: both;
             display: table;
         }
+        
     </style>
 </head>
 <body>
@@ -242,17 +283,17 @@
     <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
 
     <!-- Arch Title -->
-<div style="text-align: center; margin-bottom: 30px; position: relative;">
+<div style="text-align: center; margin-bottom: 30px; position: relative; margin: 50px 0 30px;">
     <div class="arch-title">Welcome to D' Fishing Gnome's FisHub</div>
     <div style="font-size: 20px; font-weight: bold; color: #FF0000; 
-         margin-top: -15px; text-transform: uppercase;
+         margin-top: 10px; text-transform: uppercase;
          position: absolute; right: 20%; transform: rotate(5deg);">
         "Keep those lines tight biys!"
     </div>
 </div>
 
     <!-- Fishing Container -->
-    <div class="fishing-container">
+    <div class="fishing-container" style="margin-top: 40px;">
 
         
         <!-- Static Gnome Art -->
@@ -269,7 +310,7 @@
          .-'  |         //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
         /   <\|        //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
        /     \'       //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
-       |_.- o-o      //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+       |_.- <span id="gnomeEyes">o-o</span>      //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
        / C  -._)\   //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
       /',        | //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  |  )^~^~^~^~^~^~^
      |   `-,_,__,'(-)           /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  ( )  )~^~^~^~^~^
@@ -283,6 +324,14 @@
                                  \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
                                   \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
         </pre>
+    </div>
+
+    <!-- Music Button -->
+    <div style="text-align: center; margin: 30px 0;">
+        <button id="fishingMusicBtn">
+            Let's go fishing
+        </button>
+        <audio id="fishingMusic" src="ItsFishingTime.mp3"></audio>
     </div>
 
     <!-- Contact Box -->
@@ -472,6 +521,56 @@
             }
         }
 
+    </script>
+        <script>
+            // Fishing music toggle
+            const musicBtn = document.getElementById('fishingMusicBtn');
+            const fishingMusic = document.getElementById('fishingMusic');
+            let isPlaying = false;
+    
+            musicBtn.addEventListener('click', function() {
+            // Trigger vibration on supported devices
+            if (navigator.vibrate) {
+                navigator.vibrate([50, 50, 50]);
+            }
+            
+            // Add visual vibration
+            musicBtn.classList.add('vibrate');
+            setTimeout(() => {
+                musicBtn.classList.remove('vibrate');
+            }, 300);
+
+            if (isPlaying) {
+                fishingMusic.pause();
+                musicBtn.textContent = "Let's go fishing";
+            } else {
+                fishingMusic.play()
+                    .then(() => {
+                        musicBtn.textContent = "HOLLYYYY SHIT!!! I've got too many fish I've gotta go home!!!";
+                    })
+                    .catch(error => {
+                        console.error("Error playing music:", error);
+                    });
+            }
+            isPlaying = !isPlaying;
+        });
+
+                // BLINKING EYES CODE - ADD THIS LAST:
+                const gnomeEyes = document.getElementById('gnomeEyes');
+        let eyesOpen = true;
+
+        function blinkGnome() {
+            if (eyesOpen) {
+                gnomeEyes.textContent = 'o-o';  // Eyes closed
+            } else {
+                gnomeEyes.textContent = '0-0';  // Eyes open
+            }
+            eyesOpen = !eyesOpen;
+            setTimeout(blinkGnome, 2000 + Math.random() * 3000);
+        }
+
+        // Start blinking after 3 seconds
+        setTimeout(blinkGnome, 3000);
     </script>
 </body>
 </html>
