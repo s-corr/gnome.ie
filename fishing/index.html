@@ -79,11 +79,145 @@
             z-index: 2;
         }
 
+
         .gnome-art {
             position: relative;
             z-index: 1;
             margin: 0;
             padding: 0;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            max-width: 600px;
+            margin: 40px auto;
+            border: 3px solid #7CFC00;
+            background-color: #333;
+            padding: 0;
+            box-shadow: 6px 6px 0 #FF00FF;
+        }
+
+        .contact-header {
+            padding: 15px;
+            background-color: #FF00FF;
+            color: #222;
+            font-weight: bold;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .contact-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .contact-label {
+            color: #FF00FF;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            word-break: break-all;
+        }
+
+        /* Dropdown sections */
+        .dropdown-section {
+            max-width: 800px;
+            margin: 30px auto;
+            border: 3px solid #7CFC00;
+            background-color: #333;
+        }
+
+        .dropdown-header {
+            padding: 15px;
+            background-color: #FF00FF;
+            color: #222;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 4px 4px 0 #7CFC00;
+            transition: all 0.2s;
+        }
+
+        .dropdown-header:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #7CFC00;
+        }
+
+        .dropdown-content {
+            padding: 20px;
+            display: none;
+            text-align: left;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        /* Wisdom tips styling */
+        .wisdom-tip {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #7CFC00;
+        }
+
+        .tip-rank {
+            font-weight: bold;
+            color: #FF00FF;
+            margin-right: 10px;
+        }
+
+        /* Catch of the Day styling */
+        .catch-photo {
+            max-width: 100%;
+            border: 3px solid #7CFC00;
+            margin-bottom: 15px;
+        }
+
+        .catch-blog {
+            line-height: 1.6;
+        }
+
+        /* Archive styling */
+        .archive-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #7CFC00;
+        }
+
+        .archive-date {
+            font-weight: bold;
+            color: #FF00FF;
+            margin-bottom: 5px;
+        }
+
+        .archive-photo {
+            max-width: 150px;
+            border: 2px solid #7CFC00;
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .archive-excerpt {
+            line-height: 1.5;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 </head>
@@ -92,7 +226,7 @@
     <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
 
     <!-- Arch Title -->
-    <div class="arch-title">Welcome to D' Fishing Gnome's Fish Central</div>
+    <div class="arch-title">Welcome to D' Fishing Gnome's FishHub</div>
 
 
     <!-- Fishing Container -->
@@ -129,6 +263,90 @@
         </pre>
     </div>
 
+    <!-- Contact Box -->
+    <div class="contact-box">
+        <h2 class="contact-header">Get in touch with D' Fishing Gnome lads</h2>
+        <div class="contact-content">
+            <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <span class="contact-value">
+                    <a href="mailto:fishing@gnome.ie" style="color: #7CFC00; text-decoration: none;">
+                        fishing@gnome.ie
+                    </a>
+                </span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Phone:</span>
+                <span class="contact-value">01-500-GNOME-FISHING</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Visit D' Siopa:</span>
+                <span class="contact-value">By the Big Rock, Gnome Lough, <br>Gnome Forest, Gnometopia</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Carrier Pigeon:</span>
+                <span class="contact-value">Look for the one with fies for eyes... <br>It was a windy day ok</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Dropdown Sections -->
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('wisdom')">D' Fishing Gnome's Wisdom ▼</div>
+        <div class="dropdown-content" id="wisdom-content">
+            <div class="wisdom-tip">
+                <span class="tip-rank">#1:</span> If you're not on the fly..... why are you fishing?
+            </div>
+            <div class="wisdom-tip">
+                <span class="tip-rank">#2:</span> The best bait? What are you Polish!
+            </div>
+            <div class="wisdom-tip">
+                <span class="tip-rank">#3:</span> If the fish aren't biting... 
+            </div>
+            <div class="wisdom-tip">
+                <span class="tip-rank">#4:</span> The fish arn't biting? No you're using the fly wrong!
+            </div>
+            <div class="wisdom-tip">
+                <span class="tip-rank">#5:</span> A good fisherman never tells his secrets, but he does give me his sandwiches.
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('catch')">D' Catch of the Day ▼</div>
+        <div class="dropdown-content" id="catch-content">
+            <img src="mycatch.jpg" alt="Today's Catch" class="catch-photo">
+            <div class="catch-blog">
+                <!-- Your existing blog content -->
+                <p>Today was a magical day by the old willow pond...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('archive')">D' Catch of the Past ▼</div>
+        <div class="dropdown-content" id="archive-content">
+            <div class="archive-item clearfix">
+                <div class="archive-date">July 3, 2023</div>
+                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">Caught a feisty bass who challenged me to a staring contest. Naturally, I won (gnomes never blink first). Released with a hat made of lily pads.</div>
+            </div>
+            
+            <div class="archive-item clearfix">
+                <div class="archive-date">June 28, 2023</div>
+                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">The legendary catfish of Mudbottom Creek! We shared stories and a bit of my secret gnome jerky. He showed me the best sunken log for napping.</div>
+            </div>
+            
+            <div class="archive-item clearfix">
+                <div class="archive-date">June 20, 2023</div>
+                <img src="https://placehold.co/150x100/7CFC00/222?text=Past+Catch&font=monospace" alt="Past Catch" class="archive-photo">
+                <div class="archive-excerpt">A whole school of bluegill! We had an impromptu underwater tea party (they brought the algae cakes). Most polite fish I've ever met.</div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const fishingLine = document.getElementById('fishingLine');
         const frames = [
@@ -148,7 +366,7 @@
                                                           /
                                                          /
                             ____________________________/`,
-    `                                                . _____________
+    `                                    f            . _____________
                                                                \\
                                                                 \\
                                                                 /
@@ -205,6 +423,33 @@
             fishingLine.textContent = frames[frameIndex];
             frameIndex = (frameIndex + 1) % frames.length;
         }, 400);
+
+        // Dropdown functionality
+        function toggleDropdown(id) {
+            const content = document.getElementById(id + '-content');
+            const header = event.currentTarget;
+            
+            content.classList.toggle('show');
+            
+            // Change arrow icon
+            if (content.classList.contains('show')) {
+                header.innerHTML = header.innerHTML.replace('▼', '▲');
+            } else {
+                header.innerHTML = header.innerHTML.replace('▲', '▼');
+            }
+            
+            // Close other dropdowns when opening a new one
+            if (content.classList.contains('show')) {
+                document.querySelectorAll('.dropdown-content').forEach(item => {
+                    if (item.id !== id + '-content' && item.classList.contains('show')) {
+                        item.classList.remove('show');
+                        const otherHeader = item.previousElementSibling;
+                        otherHeader.innerHTML = otherHeader.innerHTML.replace('▲', '▼');
+                    }
+                });
+            }
+        }
+
     </script>
 </body>
 </html>
