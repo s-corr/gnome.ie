@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D' Fishing Gnome - Fish Central</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #7CFC00;
+            font-family: monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .return-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: #FF00FF;
+            color: #222;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 4px 4px 0 #7CFC00;
+            transition: all 0.2s;
+            z-index: 100;
+        }
+
+        .return-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #7CFC00;
+        }
+
+        .arch-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FF00FF;
+            text-shadow: 4px 4px 0 #7CFC00, 8px 8px 0 #FF0000;
+            text-transform: uppercase;
+            margin: 70px 0 30px 0;
+            display: block;
+            transform: rotate(-10deg);
+        }
+
+        .fishing-container {
+            position: relative;
+            display: inline-block;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .fishing-gnome {
+            white-space: pre;
+            font-size: 14px;
+            color: #7CFC00;
+            text-shadow: 0 0 5px #7CFC00;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+        }
+
+        #fishingLine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            white-space: pre;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .gnome-art {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Return to Home Page Button -->
+    <a href="/" class="return-button">Return to D' Home of D' Gnomes</a>
+
+    <!-- Arch Title -->
+    <div class="arch-title">Welcome to D' Fishing Gnome's Fish Central</div>
+
+
+    <!-- Fishing Container -->
+    <div class="fishing-container">
+
+        
+        <!-- Static Gnome Art -->
+        <pre class="fishing-gnome gnome-art">
+        <!-- Animated Fishing Line -->
+        <pre id="fishingLine"></pre>
+
+
+
+
+        
+                           /
+            __           //
+         .-'  |         //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+        /   <\|        //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+       /     \'       //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+       |_.- o-o      //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+       / C  -._)\   //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+      /',        | //            /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  |  )^~^~^~^~^~^~^
+     |   `-,_,__,'(-)           /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  ( )  )~^~^~^~^~^
+     (,,)====[_]=|             /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  ( O )  )^~^~^~^
+       '.   ____/             /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  ( )  )^~^~^~^
+        | -|-|_		     /~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~(  |  )~^~^~^
+        |____)_)             \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+                              \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+                               \ ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+                                \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+                                 \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+                                  \~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^
+        </pre>
+    </div>
+
+    <script>
+        const fishingLine = document.getElementById('fishingLine');
+        const frames = [
+    `                     . ____________________________
+                                                   \\
+                                                    \\
+                                                    /
+                                                   /
+                                                  /
+                                                 /
+                            ____________________/`,
+    `                                    . _____________________
+                                                           \\
+                                                            \\
+                                                            /
+                                                           /
+                                                          /
+                                                         /
+                            ____________________________/`,
+    `                                                . _____________
+                                                               \\
+                                                                \\
+                                                                /
+                                                               /
+                                                              /
+                                                             /
+                            ________________________________/`,
+    `                                                           . __________
+                                                                       \\
+                                                                        \\
+                                                                        /
+                                                                       /
+                                                                      /
+                                                                     /
+                            ________________________________________/`,
+    `                                                                         .
+                                                                           \\
+                                                                            \\
+                                                                            /
+                                                                           /
+                                                                          /
+                                                                         /
+                            ____________________________________________/`,
+                                                                           `                              
+                                                                              
+                                                                                 .   
+                                                                                  /
+                                                                                 /
+                                                                                /
+                                                                               /
+                            __________________________________________________/`,
+                                                                           `                              
+                                                                             
+                                                                            
+                                                                            
+                                                                           
+                                                                          
+                                                                                    .
+                            _________________________________________________________/`,
+                                                                            `                              
+                                                                               
+                                                                               
+                                                                             
+                                                                            
+                                                                           
+                                                                        
+                            _________________________________________________________________ . `
+
+        ];
+
+        let frameIndex = 0;
+
+        setInterval(() => {
+            fishingLine.textContent = frames[frameIndex];
+            frameIndex = (frameIndex + 1) % frames.length;
+        }, 400);
+    </script>
+</body>
+</html>
